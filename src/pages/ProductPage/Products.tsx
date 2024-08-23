@@ -1,24 +1,23 @@
 import { MdAddShoppingCart } from "react-icons/md";
-
 import { TbCurrencyNaira } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../components/context/CartContext";
+import { CartProvider, useCart } from "../../components/context/CartContext";
 import { useProduct } from "../../components/context/ProductContext";
+import CartItems from "../Cartpage/CartItems";
 
 interface ProductProps {
-  product: {
-    id: string;
-    name: string;
-    price: number;
-    description: string;
-  };
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+  description: string;
 }
 
-const Products: React.FC<ProductProps> = ({ product }) => {
-  const { addToCart } = useCart();
-  const { products } = useProduct();
+const Products: React.FC<ProductProps> = ({ name, image, price }) => {
+  const { addToCart } = CartProvider();
+  // const { products } = useProduct();
   const handleAddToCart = () => {
-    addToCart({ product });
+    addToCart({ CartItems });
   };
   const navigate = useNavigate();
   return (
@@ -60,24 +59,14 @@ const Products: React.FC<ProductProps> = ({ product }) => {
         </div>
       </div>
       <div className="p-2 bg-slate-50 rounded-lg">
-        <div className="flex justify-between bg-slate-50 font-platypi text-2xl p-2">
-          <h1 className="">Footwears</h1>
-          <button className="font-robotomono text-[15px] flex ">
-            See more
-          </button>
-        </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           <div className="rounded-lg">
-            <img
-              src="./images/footwears/nk-001.jpg"
-              className="w-[200px] rounded-lg"
-              alt=""
-            />
-            <h1 className="font-bold font-ubuntu my-2">{product.name}</h1>
+            <img src={image} className="w-[200px] rounded-lg" alt="" />
+            <h1 className="font-bold font-ubuntu my-2">{name}</h1>
             <div className="flex justify-between items-center">
               <p className="flex items-center">
                 <TbCurrencyNaira size={25} />
-                {product.price.toFixed(2)}
+                {price.toFixed(2)}
               </p>
               <button
                 className="text-xl bg-lime-200 border-2 p-2 rounded-lg"
@@ -99,7 +88,10 @@ const Products: React.FC<ProductProps> = ({ product }) => {
                 <TbCurrencyNaira size={25} />
                 10,000.00
               </p>
-              <button className="text-xl bg-lime-200 border-2 p-2 rounded-lg">
+              <button
+                className="text-xl bg-lime-200 border-2 p-2 rounded-lg"
+                onClick={handleAddToCart}
+              >
                 <MdAddShoppingCart size={25} />
               </button>
             </div>

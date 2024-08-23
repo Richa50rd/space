@@ -1,6 +1,7 @@
 import { SlLike } from "react-icons/sl";
 import { TbCurrencyNaira } from "react-icons/tb";
 import ImageSlider from "./ImageSlider";
+import { CartProvider } from "../context/CartContext";
 interface ProductCardProps {
   product: {
     id: number;
@@ -12,7 +13,8 @@ interface ProductCardProps {
 }
 
 const Details: React.FC<ProductCardProps> = ({ product }) => {
-  const images = [];
+  const images = [img];
+
   return (
     <div className="p-2">
       <ImageSlider images={images} />

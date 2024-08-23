@@ -1,7 +1,6 @@
 export default function UserprofileForm() {
   return (
     <form className="grid grid-cols-1 space-y-4">
-      <p></p>
       <div className="space-x-4">
         <label htmlFor="" className="font-josefinsans ">
           First Name:

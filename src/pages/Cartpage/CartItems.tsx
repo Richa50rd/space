@@ -1,7 +1,5 @@
 import { TbCurrencyNaira } from "react-icons/tb";
-import DashboardHeading from "../Dashboard/DashboardHeading";
 import { RiDeleteBin7Line } from "react-icons/ri";
-
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../components/context/CartContext";
 
@@ -11,7 +9,6 @@ export default function CartItems() {
 
   return (
     <div>
-      <DashboardHeading />
       <section className="p-4 ">
         {cartItems.length === 0 ? (
           <p className="text-red-600 text-sm">Your cart is empty.</p>

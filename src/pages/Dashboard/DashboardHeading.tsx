@@ -28,7 +28,7 @@ export default function DashboardHeading() {
           <form onClick={handleSearch} className="relative ">
             <input
               type="text"
-              className="border-2 bg-slate-100 p-3 placeholder:text-2xl placeholder:font-playfair placeholder:text-black rounded-lg focus:outline-none lg:w-full"
+              className="border-2 rounded-full bg-slate-100 p-3 placeholder:text-xs placeholder:font-playfair placeholder:text-black  focus:outline-none lg:w-full"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Search..."

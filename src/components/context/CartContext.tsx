@@ -32,11 +32,24 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       return [...prevItems, { ...item, quantity: 1 }];
     });
   };
-  const increaseItmQty = (quantity: CartItem) => {};
-  const decreaseItmQty = (quantity: CartItem) => {};
-  const clearCartList = (cartItems) => {
-    cartItems = [];
-    return cartItems;
+  const increaseItmQty = (item: CartItem) => {
+    setCartItems((prevItems) =>
+      prevItems.map((cartItem) =>
+        cartItem.id === item.id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : item
+      )
+    );
+  };
+  const decreaseItmQty = (itemId: string) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item
+      )
+    );
+  };
+  const clearCartList = () => {
+    setCartItems([]);
   };
   const removeFromCart = (id: string) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
