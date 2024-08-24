@@ -2,7 +2,7 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { TbCurrencyNaira } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 import { CartProvider, useCart } from "../../components/context/CartContext";
-import { useProduct } from "../../components/context/ProductContext";
+import { useProduct } from "../../components/context/useProduct";
 import CartItems from "../Cartpage/CartItems";
 
 interface ProductProps {
@@ -14,7 +14,7 @@ interface ProductProps {
 }
 
 const Products: React.FC<ProductProps> = ({ name, image, price }) => {
-  const { addToCart } = CartProvider();
+  // const { addToCart } = CartProvider();
   // const { products } = useProduct();
   const handleAddToCart = () => {
     addToCart({ CartItems });
@@ -68,10 +68,7 @@ const Products: React.FC<ProductProps> = ({ name, image, price }) => {
                 <TbCurrencyNaira size={25} />
                 {price.toFixed(2)}
               </p>
-              <button
-                className="text-xl bg-lime-200 border-2 p-2 rounded-lg"
-                onClick={handleAddToCart}
-              >
+              <button className="text-xl bg-lime-200 border-2 p-2 rounded-lg">
                 <MdAddShoppingCart size={25} />
               </button>
             </div>
@@ -88,10 +85,7 @@ const Products: React.FC<ProductProps> = ({ name, image, price }) => {
                 <TbCurrencyNaira size={25} />
                 10,000.00
               </p>
-              <button
-                className="text-xl bg-lime-200 border-2 p-2 rounded-lg"
-                onClick={handleAddToCart}
-              >
+              <button className="text-xl bg-lime-200 border-2 p-2 rounded-lg">
                 <MdAddShoppingCart size={25} />
               </button>
             </div>
@@ -99,12 +93,6 @@ const Products: React.FC<ProductProps> = ({ name, image, price }) => {
         </div>
       </div>
       <div className="p-2 bg-slate-50 rounded-lg">
-        <div className="flex justify-between bg-slate-50 font-platypi text-2xl p-2">
-          <h1 className="">Gadjets</h1>
-          <button className="font-robotomono text-[15px] flex ">
-            See more
-          </button>
-        </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="rounded-lg">
             <img

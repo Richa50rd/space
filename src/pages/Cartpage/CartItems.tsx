@@ -3,15 +3,35 @@ import { RiDeleteBin7Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../components/context/CartContext";
 
+import { IoChevronBack } from "react-icons/io5";
+
+import { PiTrashThin } from "react-icons/pi";
+
 export default function CartItems() {
   const { cartItems, removeFromCart } = useCart();
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="p-3">
+      <div className="flex items-center justify-between">
+        <button
+          className="p-2 rounded-md bg-slate-100"
+          onClick={() => navigate(-1)}
+        >
+          <IoChevronBack size={35} />
+        </button>
+        <h1 className="text-sky-800 text-2xl font-ubuntu font-semibold capitalize text-center ">
+          Cart
+        </h1>
+        <button className="p-2 rounded-md bg-slate-100">
+          <PiTrashThin size={35} />
+        </button>
+      </div>
       <section className="p-4 ">
         {cartItems.length === 0 ? (
-          <p className="text-red-600 text-sm">Your cart is empty.</p>
+          <p className="text-red-700 text-center text-xl ">
+            Your cart is empty.
+          </p>
         ) : (
           <ul>
             {cartItems.map((item) => (
@@ -90,14 +110,18 @@ export default function CartItems() {
           </ul>
         )}
 
-        <div className="flex flex-col items-center my-5">
-          <button
-            className="border p-3 text-xl text-gray-700 font-bold bg-lime-300 rounded-lg shadow-xl"
-            onClick={() => navigate("/payment")}
-          >
-            Proceed to Payment
-          </button>
-        </div>
+        {cartItems.length > 0 ? (
+          <div className="flex flex-col items-center my-5">
+            <button
+              className="border p-3 text-xl text-gray-700 font-bold bg-lime-300 rounded-lg shadow-xl"
+              onClick={() => navigate("/payment")}
+            >
+              Proceed to Payment
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
       </section>
     </div>
   );

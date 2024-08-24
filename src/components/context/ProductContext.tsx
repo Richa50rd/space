@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
 interface Product {
   id: number;
@@ -14,7 +14,9 @@ interface ProductContextType {
   updateProduct: (id: number, updatedProduct: Product) => void;
 }
 
-const ProductContext = createContext<ProductContextType | undefined>(undefined);
+export const ProductContext = createContext<ProductContextType | undefined>(
+  undefined
+);
 export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
@@ -37,11 +39,4 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
       {children}
     </ProductContext.Provider>
   );
-};
-export const useProduct = () => {
-  const context = useContext(ProductContext);
-  if (!context) {
-    throw new Error("UseProduct must be used within a ProductProvider");
-  }
-  return context;
 };

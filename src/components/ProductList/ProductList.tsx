@@ -1,5 +1,5 @@
 import Products from "../../pages/ProductPage/Products";
-import { useProduct } from "../context/ProductContext";
+import { useProduct } from "../context/useProduct";
 
 export default function ProductList() {
   const products = useProduct();

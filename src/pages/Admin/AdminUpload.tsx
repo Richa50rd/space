@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AdminHeading from "./AdminHeading";
-import { useProduct } from "../../components/context/ProductContext";
+import { useProduct } from "../../components/context/useProduct";
 
 export default function AdminUpload() {
   const [productName, setProductName] = useState("");

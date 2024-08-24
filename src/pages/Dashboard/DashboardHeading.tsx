@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CiLogout, CiSearch, CiSettings, CiUser } from "react-icons/ci";
+import { CiLogout, CiSettings, CiUser } from "react-icons/ci";
 import {
   MdClose,
   MdOutlineFavoriteBorder,
@@ -20,25 +20,19 @@ export default function DashboardHeading() {
   };
   return (
     <>
-      <nav className="flex justify-between items-center p-3 sticky top-0 z-50 bg-lime-200">
+      <nav className="flex justify-between items-center p-2 sticky top-0 z-50 bg-lime-200">
         <button onClick={() => setToggleDashMenu((o) => !o)}>
           {toggleDashMenu ? <MdClose size={35} /> : <BiMenuAltLeft size={35} />}
         </button>
-        <div className="lg:w-[60%]">
+        <div>
           <form onClick={handleSearch} className="relative ">
             <input
               type="text"
-              className="border-2 rounded-full bg-slate-100 p-3 placeholder:text-xs placeholder:font-playfair placeholder:text-black  focus:outline-none lg:w-full"
+              className="border-2 rounded-full bg-slate-100 p-3 placeholder:text-xl placeholder:font-playfair placeholder:text-black  focus:outline-none lg:w-full"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
-              placeholder="Search..."
+              placeholder="search"
             />
-            <button
-              type="submit"
-              className="absolute right-0 top-0 font-bold  text-black p-1"
-            >
-              <CiSearch size={35} />
-            </button>
           </form>
         </div>
         <div className="space-x-3 lg:space-x-5">

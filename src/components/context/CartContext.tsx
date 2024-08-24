@@ -32,19 +32,23 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       return [...prevItems, { ...item, quantity: 1 }];
     });
   };
-  const increaseItmQty = (item: CartItem) => {
+  const increaseItmQty = () => {
     setCartItems((prevItems) =>
       prevItems.map((cartItem) =>
         cartItem.id === item.id
           ? { ...cartItem, quantity: cartItem.quantity + 1 }
-          : item
+          : cartItem
       )
     );
   };
-  const decreaseItmQty = (itemId: string) => {
+  const decreaseItmQty = () => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item
+        item.id === itemId
+          ? item.quantity > 0
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+          : item
       )
     );
   };
