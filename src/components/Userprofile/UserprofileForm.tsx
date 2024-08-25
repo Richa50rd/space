@@ -3,18 +3,7 @@ export default function UserprofileForm() {
     <form className="grid grid-cols-1 space-y-4">
       <div className="space-x-4">
         <label htmlFor="" className="font-josefinsans ">
-          First Name:
-        </label>
-        <input
-          type="text"
-          name=""
-          id=""
-          className="border-b p-2 focus:outline-none bg-slate-100 rounded-md "
-        />
-      </div>
-      <div className="space-x-4">
-        <label htmlFor="" className="font-josefinsans ">
-          Last Name:
+          Full Name:
         </label>
         <input
           type="text"

@@ -2,9 +2,7 @@ import { TbCurrencyNaira } from "react-icons/tb";
 import { RiDeleteBin7Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../components/context/CartContext";
-
 import { IoChevronBack } from "react-icons/io5";
-
 import { PiTrashThin } from "react-icons/pi";
 
 export default function CartItems() {

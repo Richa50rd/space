@@ -17,6 +17,7 @@ import Payment from "./pages/Checkoutpage/Payment";
 import AdminUpload from "./pages/Admin/AdminUpload";
 import Loading from "./components/loader/Loading";
 import AdminNotification from "./pages/Admin/AdminNotis";
+import AdminLogin from "./pages/Admin/AdminLogin";
 // import ProductDetails from "./components/productdetails/ProductDetails";
 
 const Homepage = lazy(() => import("./pages/Homepage/Homepage"));
@@ -37,6 +38,7 @@ function App() {
           <Route path="/dashboard/" element={<Dashboard />} />
           <Route path="login" element={<Login />} />
           <Route path="admin" element={<Admin />} />
+          <Route path="adminlogin" element={<AdminLogin />} />
           <Route path="adminupload" element={<AdminUpload />} />
           <Route path="adminnotification" element={<AdminNotification />} />
           <Route path="trade" element={<Trade />} />

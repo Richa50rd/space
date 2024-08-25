@@ -21,7 +21,7 @@ export default function DashboardHeading() {
   return (
     <>
       <nav className="flex justify-between items-center p-2 sticky top-0 z-50 bg-lime-200">
-        <button onClick={() => setToggleDashMenu((o) => !o)}>
+        <button id="btn" onClick={() => setToggleDashMenu((o) => !o)}>
           {toggleDashMenu ? <MdClose size={35} /> : <BiMenuAltLeft size={35} />}
         </button>
         <div>
@@ -45,7 +45,8 @@ export default function DashboardHeading() {
         </div>
       </nav>
       <ul
-        className={` flex flex-col  absolute space-y-5 font-opensans font-bold w-[60%] p-3 h-[55%] bg-lime-200 text-slate-600 rounded-br-xl shadow-md text-xl  ${
+        id="bar"
+        className={` flex flex-col  absolute space-y-6 font-opensans font-bold w-[60%] p-4 h-[55%] bg-lime-200 text-slate-700 rounded-br-xl shadow-md text-xl  ${
           toggleDashMenu ? "flex" : "hidden"
         }`}
       >
