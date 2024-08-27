@@ -1,34 +1,35 @@
-import { useEffect, useState } from "react";
+import SimpleImageSlider from "react-simple-image-slider";
+const images = [
+  {
+    url: "https://images.pexels.com/photos/2969318/pexels-photo-2969318.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    url: "https://images.pexels.com/photos/2969318/pexels-photo-2969318.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    url: "https://images.pexels.com/photos/593163/pexels-photo-593163.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    url: "https://images.pexels.com/photos/2929284/pexels-photo-2929284.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  { url: "images/5.jpg" },
+  { url: "images/6.jpg" },
+  { url: "images/7.jpg" },
+];
 
-interface ImageSliderProps {
-  images: string[];
-}
-const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  useEffect(() => {
-    let intervalId: ReturnType<typeof setInterval> | null = null;
-    if (images.length > 1) {
-      intervalId = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 3000);
-    }
-    return () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-    };
-  }, [images]);
+const Imageslide = () => {
   return (
-    <div className="image-slider">
-      {images.map((image, index) => (
-        <img
-          key={index}
-          src={image}
-          alt={`Slide ${index}`}
-          className={`slide ${index === currentIndex ? "active" : ""}`}
-        />
-      ))}
+    <div>
+      <SimpleImageSlider
+        width={360}
+        autoPlay={true}
+        loop={true}
+        height={400}
+        images={images}
+        showBullets={true}
+        showNavs={true}
+      />
     </div>
   );
 };
-export default ImageSlider;
+export default Imageslide;

@@ -1984,6 +1984,11 @@ react-icons@^5.2.1:
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-5.2.1.tgz#28c2040917b2a2eda639b0f797bff1888e018e4a"
   integrity sha512-zdbW5GstTzXaVKvGSyTaBalt7HSfuK5ovrzlpyiWHAFXndXTdd/1hdDHI4xBM1Mn7YriT6aqESucFl9kEXzrdw==
 
+react-image-gallery@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-image-gallery/-/react-image-gallery-1.3.0.tgz#789035b12d8149bdd2ab296c155f989205077ffb"
+  integrity sha512-lKnPaOzxqSdujPFyl+CkVw0j1aYoNCHk61cvr1h7aahf5aWqmPcR9YhUB4cYrt5Tn5KHDaPUzYm5/+cX9WxzaA==
+
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -2013,6 +2018,11 @@ react-router@6.26.0:
   integrity sha512-wVQq0/iFYd3iZ9H2l3N3k4PL8EEHcb0XlU2Na8nEwmiXgIUElEH6gaJDtUQxJ+JFzmIXaQjfdpcGWaM6IoQGxg==
   dependencies:
     "@remix-run/router" "1.19.0"
+
+react-simple-image-slider@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/react-simple-image-slider/-/react-simple-image-slider-2.4.1.tgz#ba80e5741b32a531110cb3811ed9f76e3eee88f8"
+  integrity sha512-9T/WjsRThJup43QxzH202rLVNqaUK9P8izTiWOfLcc5w3QygU44a9IQUuIwGYiXtWvw2spRRGLRc5Xd62/vfDg==
 
 react-transition-group@^4.4.5:
   version "4.4.5"
@@ -2239,6 +2249,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
+
+swiper@^11.1.10:
+  version "11.1.10"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.1.10.tgz#4d3df50ff8afc4960e9644ed6e5828d35ab38853"
+  integrity sha512-pAVM6vCb6bumj2B9aSh67l3wP1j5YR8dPQM1YhQKMpnBc33vs+RpyVz6NZYZl/ZopCBSYbbWK5nvESwbmU0QXQ==
 
 tailwindcss@^3.4.8:
   version "3.4.8"

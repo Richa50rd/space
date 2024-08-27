@@ -1,12 +1,22 @@
 import { TbCurrencyNaira } from "react-icons/tb";
 import { RiDeleteBin7Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../components/context/CartContext";
+import {
+  CartContext,
+  CartProvider,
+} from "../../components/context/CartContext";
 import { IoChevronBack } from "react-icons/io5";
 import { PiTrashThin } from "react-icons/pi";
+import { useContext } from "react";
 
 export default function CartItems() {
-  const { cartItems, removeFromCart } = useCart();
+  const {
+    cartItems,
+    removeFromCart,
+    clearCartList,
+    increaseItmQty,
+    decreaseItmQty,
+  } = useContext(CartContext);
   const navigate = useNavigate();
 
   return (
@@ -21,7 +31,10 @@ export default function CartItems() {
         <h1 className="text-sky-800 text-2xl font-ubuntu font-semibold capitalize text-center ">
           Cart
         </h1>
-        <button className="p-2 rounded-md bg-slate-100">
+        <button
+          onClick={() => clearCartList([])}
+          className="p-2 rounded-md bg-slate-100"
+        >
           <PiTrashThin size={35} />
         </button>
       </div>
@@ -44,7 +57,7 @@ export default function CartItems() {
                     <div className="flex justify-between items-center">
                       <h1 className="font-bold font-playfair">{item.name}</h1>
                       <button
-                        className="  text-red-600 p-3 rounded-md text-xl"
+                        className="text-red-600 p-3 rounded-md text-xl"
                         onClick={() => removeFromCart(item.id)}
                       >
                         <RiDeleteBin7Line size={25} />

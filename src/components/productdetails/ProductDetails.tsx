@@ -1,6 +1,6 @@
-import Details from "./Details";
 import { IoMdArrowBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import Details from "./Details";
 
 export default function ProductDetails() {
   const navigate = useNavigate();
