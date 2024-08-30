@@ -1,9 +1,10 @@
 import { createContext, useState } from "react";
 
-interface CartItem {
+export interface CartItem {
   id: string;
   name: string;
   price: number;
+  size: number;
   image: string;
   quantity: number;
 }
@@ -13,11 +14,24 @@ interface CartContextType {
   removeFromCart: (id: string) => void;
   increaseItmQty: (id: string, quantity: number) => void;
   decreaseItmQty: (id: string, quantity: number) => void;
+  increaseSize: (id: string, size: number) => void;
+  decreaseSize: (id: string, size: number) => void;
   clearCartList: () => void;
 }
-export const CartContext = createContext<CartContextType | undefined>(
-  undefined
-);
+
+// create a default context value
+const defaultCartContext: CartContextType = {
+  cartItems: [],
+  addToCart: () => {},
+  removeFromCart: () => {},
+  increaseItmQty: () => {},
+  decreaseItmQty: () => {},
+  increaseSize: () => {},
+  decreaseSize: () => {},
+  clearCartList: () => {},
+};
+
+export const CartContext = createContext<CartContextType>(defaultCartContext);
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
@@ -51,6 +65,24 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       )
     );
   };
+  const increaseSize = (id: string, size: number) => {
+    setCartItems((prevItems) =>
+      prevItems.map((cartItem) =>
+        cartItem.id === id
+          ? { ...cartItem, size: cartItem.size + size }
+          : cartItem
+      )
+    );
+  };
+  const decreaseSize = (id: string, size: number) => {
+    setCartItems((prevItems) =>
+      prevItems.map((cartItem) =>
+        cartItem.id === id
+          ? { ...cartItem, size: Math.max(cartItem.size - size, 40) }
+          : cartItem
+      )
+    );
+  };
   const clearCartList = () => {
     setCartItems([]);
   };
@@ -65,6 +97,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         removeFromCart,
         increaseItmQty,
         decreaseItmQty,
+        increaseSize,
+        decreaseSize,
         clearCartList,
       }}
     >

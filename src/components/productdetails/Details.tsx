@@ -1,25 +1,44 @@
 import { SlLike } from "react-icons/sl";
 import { TbCurrencyNaira } from "react-icons/tb";
-import { CartContext } from "../context/CartContext";
-import { useContext } from "react";
+
 import Imageslide from "./ImageSlider";
+
+import ShoeSize from "../Size";
+import Itemquantity from "../Itemquantity";
+import { useCart } from "../context/UseCart";
+import { CartItem } from "../context/CartContext";
+
 interface Product {
-  id: number;
+  id: string;
   name: string;
   price: number;
+  size: number;
   image: string;
   description: string;
+  initialQuantity?: number;
 }
 
 const Details: React.FC<Product> = ({
   id,
   name,
   price,
+  size,
   image,
+  initialQuantity,
   description,
 }) => {
-  const { addToCart } = useContext(CartContext);
-  const handleAddToCart = () => addToCart(id);
+  const { addToCart } = useCart();
+  const handleAddToCart = () => {
+    const newItem: CartItem = {
+      id,
+      name,
+      price,
+      size,
+      image,
+      quantity: 1,
+    };
+    addToCart(newItem);
+  };
 
   return (
     <div className="p-2 space-y-4">
@@ -37,27 +56,12 @@ const Details: React.FC<Product> = ({
       </div>
       <p>{description}</p>
       <div className="flex justify-between items-center">
-        <h1>select size</h1>
-        <select className="block  px-4 py-2 mt-2 border">
-          <option value={40} className="py-1">
-            40
-          </option>
-          <option value={41} className="py-1">
-            41
-          </option>
-          <option value={42} className="py-1">
-            42
-          </option>
-          <option value={43} className="py-1">
-            43
-          </option>
-          <option value={44} className="py-1">
-            44
-          </option>
-          <option value={45} className="py-1">
-            45
-          </option>
-        </select>
+        <h1 className="capitalize text-xl font-bold">select size</h1>
+        <ShoeSize id={id} size={size} />
+      </div>
+      <div className="flex justify-between items-center">
+        <h1 className="capitalize text-xl font-bold">Quantity:</h1>
+        <Itemquantity id={id} initialQuantity={initialQuantity} />
       </div>
       <button
         onClick={handleAddToCart}

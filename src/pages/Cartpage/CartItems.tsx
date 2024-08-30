@@ -1,22 +1,14 @@
 import { TbCurrencyNaira } from "react-icons/tb";
 import { RiDeleteBin7Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-import {
-  CartContext,
-  CartProvider,
-} from "../../components/context/CartContext";
+import { CartContext } from "../../components/context/CartContext";
 import { IoChevronBack } from "react-icons/io5";
 import { PiTrashThin } from "react-icons/pi";
 import { useContext } from "react";
+import Itemquantity from "../../components/Itemquantity";
 
 export default function CartItems() {
-  const {
-    cartItems,
-    removeFromCart,
-    clearCartList,
-    increaseItmQty,
-    decreaseItmQty,
-  } = useContext(CartContext);
+  const { cartItems, removeFromCart, clearCartList } = useContext(CartContext);
   const navigate = useNavigate();
 
   return (
@@ -64,56 +56,17 @@ export default function CartItems() {
                       </button>
                     </div>
                     <div className="flex items-center justify-between">
-                      <h3 className="text-xl">size</h3>
-                      <select className="block  px-4 py-2 mt-2 border">
-                        <option value={40} className="py-1">
-                          40
-                        </option>
-                        <option value={41} className="py-1">
-                          41
-                        </option>
-                        <option value={42} className="py-1">
-                          42
-                        </option>
-                        <option value={43} className="py-1">
-                          43
-                        </option>
-                        <option value={44} className="py-1">
-                          44
-                        </option>
-                        <option value={45} className="py-1">
-                          45
-                        </option>
-                      </select>
+                      <h3 className="text-l">Quantity</h3>
+                      <Itemquantity
+                        id={item.id}
+                        initialQuantity={item.quantity}
+                      />
                     </div>
-                    <div className="flex items-center justify-between">
-                      <h1 className=" flex items-center text-blue-600 text-xl font-bold">
-                        <TbCurrencyNaira size={30} />
-                        {item.price.toFixed(2)}
-                      </h1>
-                      <h1 className="flex items-center gap-4 text-xl">
-                        <select
-                          value={item.quantity}
-                          className="block w-full px-4 py-2 mt-2 border"
-                        >
-                          <option value={1} className="py-1">
-                            1
-                          </option>
-                          <option value={2} className="py-1">
-                            2
-                          </option>
-                          <option value={3} className="py-1">
-                            3
-                          </option>
-                          <option value={4} className="py-1">
-                            4
-                          </option>
-                          <option value={5} className="py-1">
-                            5
-                          </option>
-                        </select>
-                      </h1>
-                    </div>
+
+                    <h3 className=" flex items-center text-blue-600 text-xl font-bold text-right">
+                      <TbCurrencyNaira size={30} />
+                      {item.price.toFixed(2)}
+                    </h3>
                   </div>
                 </div>
               </li>

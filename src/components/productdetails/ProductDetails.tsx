@@ -15,7 +15,15 @@ export default function ProductDetails() {
         </h1>
       </div>
       <div className="p-2">
-        <Details />
+        <Details
+          id={id}
+          image={image}
+          name={name}
+          price={price}
+          size={size}
+          description={description}
+          initialQuantity={initialQuantity}
+        />
       </div>
     </>
   );
